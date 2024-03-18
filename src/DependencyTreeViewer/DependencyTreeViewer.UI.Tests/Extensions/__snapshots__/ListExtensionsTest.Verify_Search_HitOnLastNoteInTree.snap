@@ -1,0 +1,40 @@
+﻿[
+  {
+    "Name": "Foo.csproj",
+    "FullPath": "",
+    "TargetFrameworks": [
+      {
+        "Name": "net8.0",
+        "References": [
+          {
+            "Name": "Some.Library",
+            "Version": "1.0.0",
+            "References": [
+              {
+                "Name": "Some.Library.Abc",
+                "Version": "1.3.0",
+                "References": [
+                  {
+                    "Name": "Some.Library.Cba",
+                    "Version": "1.5.3",
+                    "References": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Bar.csproj",
+    "FullPath": "",
+    "TargetFrameworks": [
+      {
+        "Name": "net8.0",
+        "References": []
+      }
+    ]
+  }
+]

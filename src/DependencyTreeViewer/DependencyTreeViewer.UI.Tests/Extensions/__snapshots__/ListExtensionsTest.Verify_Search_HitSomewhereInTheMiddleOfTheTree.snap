@@ -1,0 +1,28 @@
+﻿[
+  {
+    "Name": "Foo.csproj",
+    "FullPath": "",
+    "TargetFrameworks": [
+      {
+        "Name": "net8.0",
+        "References": []
+      }
+    ]
+  },
+  {
+    "Name": "Bar.csproj",
+    "FullPath": "",
+    "TargetFrameworks": [
+      {
+        "Name": "net8.0",
+        "References": [
+          {
+            "Name": "Unit.Library",
+            "Version": "18.8.6",
+            "References": []
+          }
+        ]
+      }
+    ]
+  }
+]

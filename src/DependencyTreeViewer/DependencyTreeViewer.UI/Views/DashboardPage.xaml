@@ -1,0 +1,51 @@
+﻿<Page x:Class="DependencyTreeViewer.UI.Views.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DependencyTreeViewer.UI.Views"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DashboardPage">
+    <StackPanel>
+        <ui:CardExpander Grid.Column="0" Icon="{ui:SymbolIcon Box24}">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ui:TextBlock Grid.Row="0" FontSize="16" FontTypography="Body" Text="Nuget Tree" />
+                    <ui:TextBlock Grid.Row="1" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Display and search the Nuget dependency tree of a solution" />
+                </Grid>
+            </ui:CardExpander.Header>
+            <ui:CardExpander.Content>
+                <ItemsControl ItemsSource="{Binding ViewModel.RecentSolutions}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ui:CardControl
+                            Margin="0,0.5,0,0"
+                            Padding="20,10,20,10">
+                                <ui:CardControl.Header>
+                                    <ui:TextBlock Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Text="{Binding}" FontStyle="Italic" />
+                                </ui:CardControl.Header>
+                                <ui:CardControl.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ui:Button Icon="{ui:SymbolIcon FlashSettings24}"
+                                            Command="{Binding ViewModel.OpenSolutionCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:DashboardPage}, Mode=OneWay}"
+                                            CommandParameter="{Binding}" />
+                                        <ui:Button Margin="5,0,0,0" Icon="{ui:SymbolIcon Folder24}"
+                                            Command="{Binding ViewModel.OpenFolderCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:DashboardPage}, Mode=OneWay}"
+                                            CommandParameter="{Binding}" />
+                                    </StackPanel>
+                                </ui:CardControl.Content>
+                            </ui:CardControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ui:CardExpander.Content>
+        </ui:CardExpander>
+    </StackPanel>
+</Page>
